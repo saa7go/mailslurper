@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/adampresley/webframework/sanitizer"
+	"github.com/saa7go/webframework/sanitizer"
 	_ "github.com/go-sql-driver/mysql" // MySQL
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"

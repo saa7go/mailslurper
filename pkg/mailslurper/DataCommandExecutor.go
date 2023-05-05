@@ -10,7 +10,7 @@ import (
 	"mime/quotedprintable"
 	"strings"
 
-	"github.com/adampresley/webframework/sanitizer"
+	"github.com/saa7go/webframework/sanitizer"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

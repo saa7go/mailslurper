@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/adampresley/webframework/sanitizer"
+	"github.com/saa7go/webframework/sanitizer"
 	_ "github.com/mattn/go-sqlite3" // SQLite
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -61,9 +61,11 @@ func (storage *SQLiteStorage) Create() error {
 	var err error
 
 	if _, err = os.Stat(storage.connectionInformation.Filename); err == nil {
+		return nil;	// file exists, reuse the db
+		/*
 		if err = os.Remove(storage.connectionInformation.Filename); err != nil {
 			return errors.Wrapf(err, "Error removing existing SQLite storage file %s", storage.connectionInformation.Filename)
-		}
+		}*/
 	}
 
 	sqlStatement := `

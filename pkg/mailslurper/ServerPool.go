@@ -12,7 +12,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/adampresley/webframework/sanitizer"
+	"github.com/saa7go/webframework/sanitizer"
 )
 
 /*
