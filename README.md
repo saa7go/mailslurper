@@ -22,6 +22,7 @@ $ git fetch
 $ git checkout dev
 $ go get github.com/mjibson/esc
 $ go build github.com/mjibson/esc
+$ go install github.com/mjibson/esc
 $ export PATH=$GOPATH/bin
 $ cd mailslurper/cmd/mailslurper
 $ export CGO_ENABLED=1
