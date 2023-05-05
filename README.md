@@ -13,12 +13,18 @@ The following are general instructions for compiling MailSlurper. Your details m
 * Git
 
 ```bash
+$ export GOPATH=~/code/go
 $ cd ~/code/go/src/github.com
 $ mkdir mailslurper
 $ cd mailslurper
-$ git clone https://github.com/mailslurper/mailslurper.git
+$ git clone https://github.com/saa7go/mailslurper.git
+$ git fetch
+$ git checkout dev
 $ go get github.com/mjibson/esc
+$ go build github.com/mjibson/esc
+$ export PATH=$GOPATH/bin
 $ cd mailslurper/cmd/mailslurper
+$ export CGO_ENABLED=1
 $ go get
 $ go generate
 $ go build
