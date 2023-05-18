@@ -11,8 +11,6 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-
-	"github.com/saa7go/webframework/sanitizer"
 )
 
 /*
@@ -40,7 +38,7 @@ workers. An array of workers is initialized with an ID
 and an initial state of SMTP_WORKER_IDLE.
 */
 func NewServerPool(logger *logrus.Entry, maxWorkers int, logLevel, logFormat string) *ServerPool {
-	xssService := sanitizer.NewXSSService()
+	xssService := NewDummyXSSService()
 	emailValidationService := NewEmailValidationService()
 
 	pool := &ServerPool{

@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/saa7go/webframework/sanitizer"
+	"github.com/adampresley/webframework/sanitizer"
 	_ "github.com/denisenkom/go-mssqldb" // MSSQL
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -31,7 +31,7 @@ NewMSSQLStorage creates a new storage object that interfaces to MSSQL
 func NewMSSQLStorage(connectionInformation *ConnectionInformation, logger *logrus.Entry) *MSSQLStorage {
 	return &MSSQLStorage{
 		connectionInformation: connectionInformation,
-		xssService:            sanitizer.NewXSSService(),
+		xssService:            NewDummyXSSService(),
 		logger:                logger,
 	}
 }

@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/saa7go/webframework/sanitizer"
+	"github.com/adampresley/webframework/sanitizer"
 	_ "github.com/go-sql-driver/mysql" // MySQL
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -31,7 +31,7 @@ NewMySQLStorage creates a new storage object that interfaces to MySQL
 func NewMySQLStorage(connectionInformation *ConnectionInformation, logger *logrus.Entry) *MySQLStorage {
 	return &MySQLStorage{
 		connectionInformation: connectionInformation,
-		xssService:            sanitizer.NewXSSService(),
+		xssService:            NewDummyXSSService(),
 		logger:                logger,
 	}
 }

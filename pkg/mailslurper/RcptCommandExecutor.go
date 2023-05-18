@@ -7,7 +7,7 @@ package mailslurper
 import (
 	"net/mail"
 
-	"github.com/saa7go/webframework/sanitizer"
+	"github.com/adampresley/webframework/sanitizer"
 	"github.com/sirupsen/logrus"
 )
 

@@ -266,7 +266,6 @@ func (smtpWorker *SMTPWorker) getExecutorFromCommand(command SMTPCommand) IComma
 			smtpWorker.Writer,
 		)
 
-
 	default:
 		return NewHelloCommandExecutor(
 			GetLogger(smtpWorker.logLevel, smtpWorker.logFormat, "HELO Command Executor"),

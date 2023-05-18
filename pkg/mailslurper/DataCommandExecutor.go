@@ -10,7 +10,7 @@ import (
 	"mime/quotedprintable"
 	"strings"
 
-	"github.com/saa7go/webframework/sanitizer"
+	"github.com/adampresley/webframework/sanitizer"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -61,9 +61,9 @@ This signals the end of the header block and the start of the message body.
 Finally when the client sends the "\r\n.\r\n" the DATA transmission portion is complete.
 This function will return the following items.
 
-	1. Headers (MailHeader)
-	2. Body breakdown (MailBody)
-	3. error structure
+ 1. Headers (MailHeader)
+ 2. Body breakdown (MailBody)
+ 3. error structure
 */
 func (e *DataCommandExecutor) Process(streamInput string, mailItem *MailItem) error {
 	var err error
