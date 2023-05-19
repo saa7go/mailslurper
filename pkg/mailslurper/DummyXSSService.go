@@ -1,16 +1,12 @@
 package mailslurper
 
 type DummyXSSService struct {
-	data string
 }
 
 func NewDummyXSSService() *DummyXSSService {
-	return &DummyXSSService{
-		data: "",
-	}
+	return &DummyXSSService{}
 }
 
 func (service *DummyXSSService) SanitizeString(input string) string {
-	service.data = input
-	return service.data
+	return input
 }
