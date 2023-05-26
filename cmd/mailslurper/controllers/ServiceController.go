@@ -4,13 +4,14 @@
 package controllers
 
 import (
-	"bytes"
 	"encoding/base64"
 	"math"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+	"os"
+	"io/ioutil"
 
 	"github.com/labstack/echo/v4"
 	"github.com/mailslurper/mailslurper/pkg/auth/auth"
@@ -324,8 +325,22 @@ func (c *ServiceController) DownloadAttachment(ctx echo.Context) error {
 
 	c.Logger.Infof("Attachment %s retrieved", attachmentID)
 
-	reader := bytes.NewReader(data)
-	return context.Stream(http.StatusOK, attachment.Headers.ContentType, reader)
+	file, temp_err := ioutil.TempFile(os.TempDir(), "mailslurper_")
+	
+	if temp_err != nil {
+		c.Logger.Errorf("Problem creating temporary file attachment %s - %s", attachmentID, err.Error())
+		return context.String(http.StatusInternalServerError, "Error writing attachment to temporary file")
+	}
+	
+	defer os.Remove(file.Name())
+	
+	io_err := ioutil.WriteFile(file.Name(), data, 0)
+	if io_err != nil {
+		c.Logger.Errorf("Problem writing to temporary file attachment %s - %s", attachmentID, err.Error())
+		return context.String(http.StatusInternalServerError, "Error writing attachment to temporary file")
+	}
+	
+	return context.Attachment(file.Name(), attachment.Headers.FileName)
 }
 
 /*
