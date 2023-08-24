@@ -12,13 +12,15 @@ require (
 	github.com/labstack/echo-contrib v0.8.0
 	github.com/labstack/echo/v4 v4.1.14
 	github.com/mattn/go-sqlite3 v1.14.16
-	github.com/microcosm-cc/bluemonday v1.0.23 // indirect
+	github.com/microcosm-cc/bluemonday v1.0.25 // indirect
 	github.com/mjibson/esc v0.2.0 // indirect
 	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.4.2
 	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
-	golang.org/x/net v0.9.0
+	golang.org/x/crypto v0.11.0
+	golang.org/x/net v0.12.0
 )
+
+replace github.com/mailslurper/mailslurpe => github.com/saa7go/mailslurper v0.0.0-20230526191122-9c1e879b8b3b

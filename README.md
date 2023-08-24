@@ -23,7 +23,7 @@ $ git checkout dev
 $ go get github.com/mjibson/esc
 $ go build github.com/mjibson/esc
 $ go install github.com/mjibson/esc
-$ export PATH=$GOPATH/bin
+$ export PATH=$GOPATH/bin:$PATH
 $ cd mailslurper/cmd/mailslurper
 $ export CGO_ENABLED=1
 $ go get
