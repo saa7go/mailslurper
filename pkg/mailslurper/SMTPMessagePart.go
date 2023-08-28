@@ -7,7 +7,6 @@ package mailslurper
 import (
 	"bufio"
 	"io"
-	"io/ioutil"
 	"mime"
 	"mime/multipart"
 	"net/mail"
@@ -119,7 +118,7 @@ func (messagePart *SMTPMessagePart) GetBody() string {
 	var bytes []byte
 
 	if messagePart.body == "" {
-		if bytes, err = ioutil.ReadAll(messagePart.Message.Body); err != nil {
+		if bytes, err = io.ReadAll(messagePart.Message.Body); err != nil {
 			messagePart.logger.Errorf("Problem reading message body: %s", err.Error())
 			return ""
 		}
@@ -188,7 +187,7 @@ func (messagePart *SMTPMessagePart) ParseMessages(body string, boundary string) 
 			return nil
 
 		case nil:
-			if bodyPart, err = ioutil.ReadAll(part); err != nil {
+			if bodyPart, err = io.ReadAll(part); err != nil {
 				return errors.Wrapf(err, "Error reading body for content type '%s'", messagePart.Message.Header.Get("Content-Type"))
 			}
 
